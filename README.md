@@ -1,8 +1,8 @@
-# React-use-scroll-dir (react scroll dir)
+# React-use-scroll-dir
 
 React use scroll dir - is a library that allows you to control events depending on the scrolling dir of individual components or the main frame of a web application
 
-## Instalation
+# Instalation
 
 yarn
 
@@ -16,7 +16,13 @@ npm
 npm install react-use-scroll-dir
 ```
 
-## Usage
+pnpm
+
+```sh
+pnpm install react-use-scroll-dir
+```
+
+# Usage
 
 From window
 
@@ -86,3 +92,9 @@ export default function RootPage() {
   ...
 }
 ```
+
+# License
+
+Copyright (c) Xlebp Rjanoi (xlebpushek). All rights reserved.
+
+Licensed under the [MIT](LICENSE) license.
