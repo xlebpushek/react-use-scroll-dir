@@ -1,0 +1,15 @@
+# Package manager
+.yarn/install-state.gz
+yarn-error.log
+
+# Dependencies
+node_modules
+
+# Coverage directory
+coverage
+
+# Dist directory
+dist
+
+# IDE
+.vscode

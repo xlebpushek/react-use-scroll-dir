@@ -1,0 +1,43 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.10.0'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+
+      - name: Installing Yarn
+        run: npm install -g yarn
+
+      - name: Installing dependencies
+        run: yarn install
+
+      - name: Building
+        run: yarn build
+
+      - name: Create .yarnrc.yml
+        run: |
+          echo "npmRegistryServer: https://registry.npmjs.org" >> .yarnrc.yml
+          echo "npmPublishAccess: public" >> .yarnrc.yml
+          echo "npmRegistries:" >> .yarnrc.yml
+          echo '  "https://registry.npmjs.org":' >> .yarnrc.yml
+          echo "    npmAuthToken: ${{ secrets.NPM_TOKEN }}" >> .yarnrc.yml
+
+      - name: Publishing
+        run: yarn npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
