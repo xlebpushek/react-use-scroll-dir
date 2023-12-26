@@ -1,6 +1,6 @@
 {
   "name": "react-use-scroll-dir",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React use scroll dir - is a library that allows you to control events depending on the scrolling direction of individual components or the main frame of a web application",
   "keywords": [
     "react-library",
